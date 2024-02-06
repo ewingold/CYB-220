@@ -1,0 +1,14 @@
+# Creating a dictionary with for Carolina county names and their capitals/seats
+south_carolina_counties = {
+    'Abbeville': 'Abbeville',
+    'Aiken': 'Aiken',
+    'Pickens': 'Pickens',
+    'Anderson': 'Anderson',
+    'Greenville': 'Greenville',
+    'Spartanburg': 'Spartanburg'
+}
+
+# Printing the dictionary
+print("\nSouth Carolina County Names and Their Respective County Capitals/Seats:")
+for county, capital in south_carolina_counties.items():
+    print(f"{county} County: {capital}")
