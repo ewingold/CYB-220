@@ -1,0 +1,14 @@
+# Creating a dictionary for definitions
+definitions = {
+    'python': 'Python is a high-level, general-purpose programming language.',
+    'variable': 'A Python variable is a reserved memory location to store values',
+    'list': 'Python lists store multiple data together in a single variable. They are ordered and changeable',
+    'method': 'A method is a function that “belongs to” an object.',
+    'if statement': 'An if statement is a condition statement used to check a condition, and execute it if the condition holds true.',
+    'dictionary': 'A dictionary is a kind of data structure that stores items in key-value pairs.',
+    'function': 'A function is a block of code which only runs when it is called.'
+}
+
+# Optimizing printing by using a loop statement
+for word, meaning in definitions.items():
+    print(f"{word.capitalize()}:\n{meaning}\n")
