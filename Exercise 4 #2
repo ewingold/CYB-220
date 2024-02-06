@@ -1,0 +1,13 @@
+# Here I am creating a dictionary for my favorite celebrity, John Frusciante of the Red Hot Chili Peppers.
+person = {
+    'f_name': 'John',
+    'l_name': 'Frusciante',
+    'age': 53,
+    'hometown': 'Queens, New York',
+    'current_city': 'Los Angeles',
+    'username': 'Frusciante32'
+}
+
+# Printing the new concealed information with f-strings
+print(f"\nThis person's first name is {person['f_name']}, last name is {person['l_name']}, and their username is {person['username']}")
+print(f"For security reasons, we might ask them for their hometown, which is {person['hometown']}.")
