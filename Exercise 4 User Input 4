@@ -1,0 +1,33 @@
+import random
+
+# Generating a random number between 1 and 10
+secret_number = random.randint(1, 100)
+
+# Setting an active variable to control the looping statement
+playing = True
+
+# Beginning of the guessing game
+while playing:
+    # Asking teh user to guess the number or quit
+    guess = input("Guess a number between 1 and 100 (or type 'quit' to exit):")
+
+    # Checking to see if the user wants to quit the program
+    if guess.lower() == 'quit':
+        print("Quitting the guessing game...")
+        break
+
+    # Checking if the input is an integer
+    try:
+        guess = int(guess)
+    except ValueError:
+        print("Please enter a valid number or type 'quit' to exit")
+        continue
+
+    # Seeing how close the guess was to the secret number
+    if guess < secret_number:
+        print("Too low! Try again.")
+    elif guess > secret_number:
+        print("Too high! Try again.")
+    else:
+        print("Congratulations! You guessed the right number")
+        playing = False
