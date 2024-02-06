@@ -1,0 +1,30 @@
+# Here is an empty dictionary to store the user response
+user_flavors = {}
+
+# Asking users what their favorite Ubuntu flavor is
+print("Welcome to the Ubuntu Flavor Poll!")
+print("Enter you username and your favorite Ubuntu flavor")
+print("Type 'quit' to exit the poll.")
+
+while True:
+    # Ask the user for their username
+    username = input("Username: ")
+
+    # Check if the user wants to quit
+    if username.lower() == 'quit':
+        print("Exiting the poll...")
+        break
+
+    # Asking the user for their favorite Ubuntu flavor
+    flavor = input("Favorite Ubuntu Flavor: ")
+
+    # Store the user's response in the dictionary
+    user_flavors[username] = flavor
+
+    # Printing the user's name and the flavor they chose
+    print(f"Thank you, {username}! You chose {flavor} as your favorite Ubuntu flavor.")
+
+# Print the poll results
+print("\nPoll Results:")
+for username, flavor in user_flavors.items():
+    print(f"{username}: {flavor}")
