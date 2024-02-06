@@ -1,0 +1,5 @@
+# Asking the user for their name
+name = input("What is your name? ")
+
+# Creating a welcome message
+print(f"Welcome to Anderson University, {name}!")
