@@ -1,0 +1,37 @@
+# Creating a List of 10 South Carolina Counties (chosen alphabetically)
+south_carolina_county_list = [
+    'Abbeville',
+    'Aiken',
+    'Allendale',
+    'Anderson',
+    'Bamberg',
+    'Barnwell',
+    'Beaufort',
+    'Berkeley',
+    'Calhoun',
+    'Charleston'
+]
+
+# Creating a dictionary with for Carolina county names and their capitals/seats
+south_carolina_counties = {
+    'Abbeville': 'Abbeville',
+    'Aiken': 'Aiken',
+    'Pickens': 'Pickens',
+    'Anderson': 'Anderson',
+    'Greenville': 'Greenville',
+    'Spartanburg': 'Spartanburg'
+}
+
+# Printing the dictionary
+print("\nSouth Carolina County Names and Their Respective County Capitals/Seats:")
+for county, capital in south_carolina_counties.items():
+    print(f"{county} County: {capital}")
+
+# Looping through each county to see if it is in the dictionary I previously made
+for county in south_carolina_county_list:
+    if county in south_carolina_counties:
+        print(f"\n{county} is in our dictionary, and the capital/seat is {south_carolina_counties[county]}.")
+    else:
+        print(f"{county} is not in our dictionary. We will add this county shortly. Thanks!")
+
+
