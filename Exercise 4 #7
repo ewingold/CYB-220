@@ -1,0 +1,49 @@
+# Creatubg dictionaries for 5 South Carolina counties that includes cities and populations.
+
+greenville_county = {
+    'Greenville': 72095,
+    'Simpsonville': 24685,
+    'Taylors': 23107,
+    'Travelers Rest': 7771,
+    'Wade Hampton': 20192
+}
+
+aiken_county = {
+    'Aiken': 31895,
+    'North Augusta': 25675,
+    'New Ellenton': 2248,
+    'Wagener':645,
+    'Perry': 196
+}
+
+spartanburg_county = {
+    'Spartanburg': 38401,
+    'Inman': 3054,
+    'Greer': 38865,
+    'Wellford': 3415,
+    'Reidville': 1682
+}
+
+anderson_county = {
+    'Anderson': 29284,
+    'Belton': 4405,
+    'Honea Path': 3741,
+    'Williamston': 4115,
+    'Iva': 1139
+}
+
+orangeburg_county = {
+    'Orangeburg': 12482,
+    'Santee': 791,
+    'Bowman': 777,
+    'Elloree': 562,
+    'Eutawville': 237
+}
+
+# Creating a list containing the county dictionaries
+south_carolina_counties_list = [greenville_county, aiken_county, spartanburg_county, anderson_county, orangeburg_county]
+
+# Looping through each county dictionary and printing statements about the population of each city
+for county in south_carolina_counties_list:
+    for city, population in county.items():
+        print(f"In {city.title()}, the current population is {population}.")
