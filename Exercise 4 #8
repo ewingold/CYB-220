@@ -1,0 +1,12 @@
+# Creating the dictionary titled sc_counties with county names as keys and lists of largest cities as values
+sc_counties = {
+    'Greenville': ['Greenville', 'Mauldin', 'Simpsonville'],
+    'Richland': ['Columbia', 'Saint Andrews', 'Dentsville'],
+    'Charleston': ['Mount Pleasant', 'James Island', 'Isle of Palms'],
+    'Anderson': ['Anderson', 'Powdersville', 'Centerville'],
+    'Horry': ['Myrtle Beach', 'Conway', 'Carolina Forest']
+}
+
+# Loop through the dictionary and print statements about the largest cities in each county
+for county, cities in sc_counties.items():
+    print(f"\nIn {county}, the largest cities are {cities[0]}, {cities[1]}, and {cities[2]}.")
