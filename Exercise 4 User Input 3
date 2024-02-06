@@ -1,0 +1,22 @@
+# Making a Continuous loop until the user enters an integer or exit
+while True:
+    # Ask the user for an input
+    user_input = input("Enter an integer (or type 'exit' to quit): ")
+
+    # Checking if the user wants to exit the program
+    if user_input.lower() == 'exit':
+        print("Exiting the program...")
+        break
+
+    # Checking if the input is an integer
+    try:
+        num = int(user_input)
+    except ValueError:
+        print("Please enter a valid integer or type 'exit' to quit.")
+        continue
+
+    # Checking if the integer is even or odd
+    if num % 2 == 0:
+        print(f"The number {num} is even.")
+    else:
+        print(f"The number {num} is odd.")
