@@ -1,0 +1,23 @@
+# Here I am creating a dictionary for my favorite celebrity, John Frusciante of the Red Hot Chili Peppers.
+person = {
+    'f_name': 'John',
+    'l_name': 'Frusciante',
+    'age': 53,
+    'hometown': 'Queens, New York',
+    'current_city': 'Los Angeles',
+    'username': 'Frusciante32'
+}
+
+# Printing the dictionary above
+print("Entire dictionary:")
+print(person)
+print()
+
+# Printing each value individually
+print ("Individual key-value pairs:")
+print("First Name:", person['f_name'])
+print("Last Name:", person['l_name'])
+print("Age:", person['age'])
+print("Hometown:", person['hometown'])
+print("Current City:", person['current_city'])
+print("Username:", person['username'])
