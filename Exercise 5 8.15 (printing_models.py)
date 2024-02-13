@@ -1,0 +1,10 @@
+# printing_models.py
+from printing_functions import print_models, show_completed_models
+
+# Starting with some designs that need to be printed.
+unprinted_designs = ['phone case', 'robot pendant', 'dodecahedron']
+completed_models = []
+
+# Using the imported functions from printing_functions.py
+print_models(unprinted_designs, completed_models)
+show_completed_models(completed_models)
