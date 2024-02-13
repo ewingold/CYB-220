@@ -1,0 +1,19 @@
+def make_album(artist, title, num_songs=None):
+    """Building a dictionary describing a music album."""
+    album_info = {
+        'artist': artist,
+        'title': title
+    }
+    if num_songs:
+        album_info['num_songs'] = num_songs
+    return album_info
+
+# Creating three dictionaries for each album
+album1 = make_album("Silverchair", "Diorama", 11)
+album2 = make_album("Nirvana", "In Utero", 12)
+album3 = make_album("Red Hot Chili Peppers", "Californication", 18)
+
+# Printing the albums and information
+print(album1)
+print(album2)
+print(album3)
