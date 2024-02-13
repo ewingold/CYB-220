@@ -1,0 +1,31 @@
+def show_messages(messages):
+    """Prints each text message from the list"""
+    for message in messages:
+        print(message)
+
+def send_messages(messages, sent_messages):
+    """Prints each text message from the list and moves it to the sent_messages list."""
+    for message in messages:
+        print(message)
+        sent_messages.append(message)
+
+# Defining a list of short text messages
+text_messages = [
+    "Hello World!",
+    "What are you up to?",
+    "How are you doing?",
+    "I'm just curious"
+]
+
+# Creating an empty list to store messages
+sent_messages = []
+
+# Calling the send_messages() function
+send_messages(text_messages, sent_messages)
+
+# Printing both lists to ensure messages were moved correctly
+print("\nOriginal messages:")
+show_messages(text_messages)
+
+print("\nSent messages:")
+show_messages(sent_messages)
