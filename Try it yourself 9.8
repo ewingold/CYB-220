@@ -1,0 +1,33 @@
+# Creating the User class
+class User:
+    def __init__(self, first_name, last_name, age, email, location):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.email = email
+        self.location = location
+
+
+# Creating a new class for privileges
+class Privileges: 
+    def __init__(self, privileges):
+        self.privileges = privileges
+        
+    def show_privileges(self):
+        print("Admin Privileges:")
+        for privilege in self.privileges:
+            print(privilege)
+
+
+
+class Admin(User):
+    def __init__(self, first_name, last_name, age, email, location, privileges):
+        super().__init__(first_name, last_name, age, email, location)
+        self.privileges = Privileges(privileges)
+        
+# Creating an instance of Admin with privileges
+admin_privileges = ["can add post", "can delete post", "can ban users"]
+admin_user = Admin("Admin", "User", 40, "admin@email.com", "Anderson", admin_privileges)
+
+# Calling the show privileges method for the current instance
+admin_user.privileges.show_privileges()
