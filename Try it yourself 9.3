@@ -1,0 +1,38 @@
+# Creating the "User" class using the "init" method
+class User:
+    def __init__ (self, first_name, last_name, age, email, location):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.email = email
+        self.location = location
+
+# Creating a definition for describing the user
+    def describe_user(self):
+        print("User Information:")
+        print(f"Name: {self.first_name} {self.last_name}")
+        print(f"Age: {self.age}")
+        print(f"Email: {self.email}")
+        print(f"Location: {self.location}")
+
+# Creating a definition for greeting the user
+    def greet_user(self):
+        print(f"Hello, {self.first_name}! Welcome back!")
+
+# Creating intances for different users
+user1 = User("Bob", "Johnson", 25, "bobjon25@email.com", "Ohio")
+user2 = User("Jane", "Doe", 32, "janed@email.com", "New York")
+user3 = User("Jake", "Statefarm", 27, "jakesf@email.com", "South Carolina")
+
+#Calling out all methods for each user
+user1.describe_user()
+user1.greet_user()
+print()
+
+user2.describe_user()
+user2.greet_user()
+print()
+
+user3.describe_user()
+user3.greet_user()
+print()
