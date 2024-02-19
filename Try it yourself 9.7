@@ -1,0 +1,43 @@
+# Creating the user class
+class User:
+    def __init__(self, first_name, last_name, age, email, location):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.email = email
+        self.location = location
+
+# Describing the user
+    def describe_user(self):
+        print("User Information:")
+        print(f"Name: {self.first_name} {self.last_name}")
+        print(f"Age: {self.age}")
+        print(f"Email: {self.email}")
+        print(f"Location: {self.location}")
+
+# Greeting the user
+    def greet_user(self):
+        print(f"Hello, {self.first_name}! Welcome back.")
+
+# Creating the Admin user account and carrying over aspects from the original describe user
+class Admin(User):
+    def __init__(self, first_name, last_name, age, email, location, privileges):
+        super().__init__(first_name, last_name, age, email, location)
+        self.privileges = privileges
+
+# Creating a new definition to show privileges
+    def show_privileges(self):
+        print("Admin Privileges:")
+        for privilege in self.privileges:
+            print(privilege)
+
+# Creating an instance for admin
+admin = Admin("Admin", "User", 40, "admin@example.com", "Admin City", ["can add post", "can delete post", "can ban user"])
+
+# Calling the show_privileges method
+admin.show_privileges()
+
+
+
+
+
