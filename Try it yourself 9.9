@@ -1,0 +1,94 @@
+# Creating the car class
+class Car:
+    """A simple attempt to represent a car."""
+
+# Defining the make, model and year
+    def __init__(self, make, model, year):
+        """Initialize attributes to describe a car."""
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+# Defining the descriptive name
+    def get_descriptive_name(self):
+        """Return a neatly formatted descriptive name."""
+        long_name = f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+
+# Defining the odometer reading
+    def read_odometer(self):
+        """Print a statement showing the car's mileage."""
+        print(f"This car has {self.odometer_reading} miles on it.")
+
+# Updating the odometer
+    def update_odometer(self, mileage):
+        """Set the odometer reading to the given value."""
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+# Defining the increment to the odometer
+    def increment_odometer(self, miles):
+        """Add the given amount to the odometer reading."""
+        self.odometer_reading += miles
+
+
+# Creating a class for an electric car
+class ElectricCar(Car):
+    """Represent aspects of a car, specific to electric vehicles."""
+
+# Defining the make, model, and year of the electric car
+    def __init__(self, make, model, year):
+        """Initialize attributes of the parent class."""
+        super().__init__(make, model, year)
+        self.battery = Battery()
+
+
+# Creating the battery class
+class Battery:
+    """A simple attempt to model a battery for an electric car."""
+
+# Defining the battery size
+    def __init__(self, battery_size=75):
+        """Initialize the battery's attributes."""
+        self.battery_size = battery_size
+
+# Describing the battery
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print(f"This car has a {self.battery_size}-kWh battery.")
+
+# Defining the range for the battery
+    def get_range(self):
+        """Print a statement about the range this battery provides."""
+        if self.battery_size == 75:
+            range = 260
+        elif self.battery_size == 100:
+            range = 315
+        print(f"This car can go approximately {range} miles on a full charge.")
+
+# Defining the battery upgrade
+    def upgrade_battery(self):
+        """Upgrade the battery to 100 kWh if it's not already."""
+        if self.battery_size != 100:
+            self.battery_size = 100
+
+
+# Creating an electric car
+my_electric_car = ElectricCar('Tesla', 'Model S', 2023)
+
+# Displaying the initial battery size and range
+my_electric_car.battery.describe_battery()
+my_electric_car.battery.get_range()
+
+# Upgrading the battery and display the new range
+my_electric_car.battery.upgrade_battery()
+my_electric_car.battery.describe_battery()
+my_electric_car.battery.get_range()
+
+
+
+
+
+
