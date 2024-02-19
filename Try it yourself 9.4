@@ -1,0 +1,41 @@
+# Creating the "Restaurant" class using the "init" method
+class Restaurant:
+    def __init__(self, restaurant_name, cuisine_type):
+        self.restaurant_name = restaurant_name
+        self.cuisine_type = cuisine_type
+        self.number_served = 0
+
+# Creating the definition for defining the restaurant
+    def describe_restaurant(self):
+        print(f"Restaurant Name: {self.restaurant_name}")
+        print(f"Cuisine Type: {self.cuisine_type}")
+
+# Creating the definition for the restaurant being open
+    def open_restaurant(self):
+        print(f"The restaurant {self.restaurant_name} is open.")
+
+# Creating a definition for number of people being served
+    def set_number_served(self, number):
+        self.number_served = number
+
+# Creating a definition for hte increment of number served
+    def increment_number_served(self, increment):
+        self.number_served += increment
+
+# Creating a new instance called "restaurant"
+restaurant = Restaurant("The Greatest Pizza Place", "Italian")
+
+# Printing the first/initial number of customers who were served
+print(f"Number of customers served: {restaurant.number_served}")
+
+# Changing the number of customers who were served and then printing it again
+restaurant.number_served = 100
+print(f"Number fo customers served: {restaurant.number_served}")
+
+# Using set number served to set the number of customers served
+restaurant.set_number_served(250)
+print(f"Number of customers served: {restaurant.number_served}")
+
+# Using increment number served to increment the number of customers served
+restaurant.increment_number_served(100)
+print(f"Number of customers served: {restaurant.number_served}")
