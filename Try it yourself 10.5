@@ -1,0 +1,14 @@
+# Opening the file in append mode to stop from overwriting information
+with open("guest_book.txt", "a") as file:
+
+    while True:
+        name = input("Please enter your name (or type 'quit' to exit): ")
+
+
+        if name.lower() == 'quit':
+            break
+
+        # Writing the user's name to the file
+        file.write(name + "\n")
+
+print("Names have been written to guest_book.txt.")
