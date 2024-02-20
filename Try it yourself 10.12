@@ -1,0 +1,27 @@
+# Importing the JSON file
+import json
+
+def get_favorite_number():
+    try:
+        # Reading the gavorite number from the JSON file
+        with open("favorite_number.json", "r") as file:
+            data = json.load(file)
+            favorite_number = data["favorite_number"]
+        return favorite_number
+    except FileNotFoundError:
+        return None
+
+def store_favorite_number(favorite_number):
+    data = {"favorite_number": favorite_number}
+
+    with open("favorite_number.json", "w") as file:
+        json.dump(data, file)
+
+favorite_number = get_favorite_number()
+
+if favorite_number:
+    print("I know your favorite number! It's", favorite_number)
+else:
+    favorite_number = input("What is your favorite number? ")
+    store_favorite_number(favorite_number)
+    print("Favorite number has been stored in favorite_number.json.")
