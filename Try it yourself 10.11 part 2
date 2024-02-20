@@ -1,0 +1,10 @@
+# Importing json
+import json
+
+# Read the favorite number from the JSON file
+with open("favorite_number.json", "r") as file:
+    data = json.load(file)
+    favorite_number = data["favorite_number"]
+
+# Print the message with the favorite number
+print("I know your favorite number! It's", favorite_number)
