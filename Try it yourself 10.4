@@ -1,0 +1,9 @@
+# Prompting the user for their name
+name = input("Please enter your name: ")
+
+# Writing the user's name to a file called guest.txt
+with open("guest.txt", "w") as file:
+    file.write(name)
+
+# A message saying that the message has been added to the guest.txt file
+print("Your name has been written to guest.txt.")
