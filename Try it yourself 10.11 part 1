@@ -1,0 +1,15 @@
+# Importing with JSON
+import json
+
+# Prompting the user for their favorite number
+favorite_number = input("What is your favorite number? ")
+
+# Storing the favorite number in a dictionary
+data = {"favorite_number": favorite_number}
+
+# Writing the data to a JSON file
+with open("favorite_number.json", "w") as file:
+    json.dump(data, file)
+
+print("Favorite number has been stored in favorite_number.json.")
+
