@@ -1,0 +1,23 @@
+# Writing the new text file
+with open("learning_python.txt", "w") as file:
+    file.write("In Python you can: \n")
+    file.write("In Python you can define classes. \n")
+    file.write("In Python you can declare variables. \n")
+    file.write("In Python you can work with lists")
+    file.write("In Python you can use if statements. \n")
+    file.write("In Python you can use loops. \n")
+    file.write("In Python you can create dictionaries for terms. \n")
+    file.write("In Python you can define and call functions. \n")
+
+# Getting Python to read the file and print contents twice, one time as the replaced Swift variation and one as the original
+
+with open("learning_python.txt", "r") as file:
+    for line in file:
+        modified_line = line.replace("Python", "Swift")
+        print(modified_line.strip())
+
+    file.seek(0)
+    lines = file.readlines()
+    print("\nPrinting contents by looping over each line stored in a list:\n")
+    for line in lines:
+        print(line.strip())
