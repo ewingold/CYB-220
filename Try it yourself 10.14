@@ -1,0 +1,30 @@
+# importing json
+import json
+
+# Prompting the user for their name, age, and email
+username = input("What is your name? ")
+age = input("How old are you? ")
+email = input("What is your email address? ")
+
+# Creating a dictionary to store the user information
+user_info = {
+    "username": username,
+    "age": age,
+    "email": email
+}
+
+# Writing the dictionary to a file using JSON dump
+with open("user_info.json", "w") as file:
+    json.dump(user_info, file)
+
+print(f"We'll remember you when you come back, {username}!")
+
+# Reading the dictionary back from the file using JSON loads
+with open("user_info.json", "r") as file:
+    loaded_user_info = json.load(file)
+
+# Printing a summary of the user's information
+print("\nSummary of user information:")
+print(f"Username: {loaded_user_info['username']}")
+print(f"Age: {loaded_user_info['age']}")
+print(f"Email: {loaded_user_info['email']}")
