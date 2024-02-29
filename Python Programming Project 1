@@ -1,0 +1,486 @@
+# Welcome to my dungeon escape text-based adventure game!
+# Upon death, you can restart to return to the first path decision, but if you want to select a new weapon you will need to quit and start it up again.
+# Certain weapons are better in specific circumstances and some will get you killed if you pick the wrong path.
+
+while True:
+    print("\nYour head is spinning. The last thing you remember is getting ready for bed and now you are laying on the floor in a dark place you have never seen before.")
+    print("The ground is cold and wet and the room is almost completely dark, being lit by a single torch on the wall.")
+    print("Now that you can see where you are, you notice a rack of weapons resting against the wall to your right. There is a large sword, a spear, and a bow with a few arrows.")
+    print("\nWhich of these weapons would you like to take with you?")
+
+    # Loop until a valid weapon choice is made
+    while True:
+        # Loop until a valid weapon choice is made
+        weaponChoice = input("> ").lower()  # Converting input to lowercase
+
+        if weaponChoice == "sword":
+            print("You pick up the sword!")
+            print(
+                "It is very heavy. You are not sure if you would be able to swing this very fast but it should do a lot of damage.")
+            break  # Exit the loop if a valid choice is made
+
+        elif weaponChoice == "spear":
+            print("You pick up the spear!")
+            print(
+                "The spear is fairly light and could help you keep distance between yourself and anyone that might try and attack you.")
+            print("It feels a little flimsy though")
+            break  # Exit the loop if a valid choice is made
+
+        elif weaponChoice == "bow":
+            print("You pick up the bow!")
+            print("The bow is light and comes with a quiver of arrows.")
+            break  # Exit the loop if a valid choice is made
+
+        else:
+            print("Invalid option. Please enter either sword, spear, or bow")
+            # Continue the loop to prompt the user again for a valid choice
+
+    # Main game loop
+    while True:
+        # Prompt the user to choose a path
+        print("\nNow that you have a weapon and can see where you are, you notice two separate paths that you could take.")
+        print("One is directly ahead of you and the other is to your left.")
+
+        # Loop until a valid path choice is made
+        while True:
+            pathChoice = input("\nWhich path will you take? (straight/left) > ").lower()  # Convert input to lowercase
+
+            # Taking path 6 at the start.
+            if pathChoice == "straight":
+                print("You choose the path straight ahead.")
+
+                # Describing the room entered
+                print("\nAs soon as you enter the room, the door behind you closes with a loud thud. Looking inside the room, you can see that you are not alone.")
+                print("In the center of the room there is a giant spider with a head that looks like it belongs to a human.")
+                print("The spider hisses and begins crawling towards you, gnashing its teeth.")
+                print("\nWith nowhere to run, you stand your ground and prepare to fight.")
+
+                # Combat scenarios with Spider based on the chosen weapon
+                if weaponChoice == "sword":
+                    print("\nWith a mighty swing of your sword, the spider is obliterated, killing it instantly!")
+                elif weaponChoice == "spear":
+                    print("\nYou keep your distance and thrust your spear into the spider's head, killing it instantly!")
+                elif weaponChoice == "bow":
+                    print("\nYou start shooting some of your arrows at the spider.")
+                    print("It doesn't seem to be doing much more than slowing it down, but after firing five shots to its head, the spider falls dead.")
+                    print("You pick up the arrows that you used on the spider and put them back in your quiver.")
+
+                # Giving another choice after defeating the spider
+                print("\nWith the spider defeated, you notice two more paths.")
+                print("One leads straight ahead, and the other is to your right.")
+
+                # Choosing a path after beating the spider
+                while True:
+                    sevenAndEightPathChoice = input("\nWhich path will you take? (straight/right) > ").lower()
+
+                    if sevenAndEightPathChoice == "straight":
+                        print("You choose the path straight ahead.")
+
+                        # Describing the path 7 room
+                        print("\n The door closes behind you with a loud thud. In the center of the room is a large stone golumn")
+                        print("It begins to slowly stomp towards you, brandishing a large club.")
+                        print("\nOnce again you are left with no option other than to fight and prepare yourself.")
+                        # Proceed with the scenario for the straight path (you can add this later)
+
+                        # Golem combat based on weapon choice
+                        if weaponChoice == "sword":
+                            print("\nYou raise your large sword and swing it at the golem's head.")
+                            print("A massive clang reverberates through the room and sparks fly as you crack the stone head of the golem.")
+                            print("The golem stumbles backwards as you prepare to swing again.")
+                            print("One final swing of your sword and the head of the golem shatters as it falls to the floor.")
+
+                            # Sword user can make it to the exit
+                            print("\nAfter the golem falls dead, you start to hear a heavy rumbling in the room. The ceiling is starting to come down to crush you.!")
+                            print("You must make a quick decision!")
+
+                            # Prompt the player to make a choice (ceiling)
+                            while True:
+                                ceilingAction = input(
+                                    "\nDo you try to return through the closed door, or do you attempt to move forward to the next room? (retreat/forward) > ").lower()
+                                if ceilingAction == "retreat":
+                                    print("\nYou try to retreat back the way you came, but the door is sealed shut!")
+                                    print("You try tugging harder and even hitting it with you sword, but it is no use")
+                                    print("\nThe ceiling comes down and crushes you. You are dead!")
+
+                                    # Asking the player if they want to try again after death
+                                    while True:
+                                        try_again = input("\nWould you like to try again? (yes/no): ").lower()
+                                        if try_again == "yes":
+                                            print("\nRestarting last checkpoint...\n")
+                                            break
+                                        elif try_again == "no":
+                                            print("\nGame over. Thanks for playing!")
+                                            exit()
+                                        else:
+                                            print("Invalid option. Please enter 'yes' or 'no'.")
+                                    break
+
+                                    # Moving forward decision
+                                elif ceilingAction == "forward":
+                                    print("\nYou quickly run forward into the next room as the ceiling comes down, blocking your access to the previous room.")
+
+                                    # Sword Ending:
+                                    print("\nAfter you catch your breath, you look ahead and notice that you can see sunlight coming through a doorway.")
+                                    print("You see that the doorway leads to the outside world.")
+                                    print("You run outside and make your escape from the dungeon. You are free at last.")
+                                    print("\nThe End")
+                                    exit() #The program finishes after reaching the ending
+
+                                else:
+                                    print("Invalid option. Please enter either 'retreat' or 'forward'.")
+
+                        elif weaponChoice == "spear":
+                            print("\nYou thrust you spear into the head of the golem")
+                            print("It doesn't seem to be doing anything, but you try again anyway, stabbing the golem again.")
+                            print("The spear breaks on impact as the golem begins to raise its club.")
+                            print("\nThe golem crushes you.")
+                            print("\n You are dead")
+
+                            # Asking the player if they want to try again after death
+                            while True:
+                                try_again = input("Would you like to try again? (yes/no): ").lower()
+                                if try_again == "yes":
+                                    print("\nRestarting last checkpoint...\n")
+                                    break
+                                elif try_again == "no":
+                                    print("\nGame over. Thanks for playing!")
+                                    exit()
+                                else:
+                                    print("Invalid option. Please enter 'yes' or 'no'.")
+
+                            break
+
+                        elif weaponChoice == "bow":
+                            print("\nYou pull back an arrow and release it.")
+                            print("The arrow bounces off the stone skin of the golem")
+                            print("You panic and begin firing more arrows, but it is no use.")
+                            print("\n The golem lifts its great club and brings it down on top of you.")
+                            print("\n You are dead")
+
+                            # Asking the player if they want to try again after death
+                            while True:
+                                try_again = input("Would you like to try again? (yes/no): ").lower()
+                                if try_again == "yes":
+                                    print("\nRestarting last checkpoint...\n")
+                                    break
+                                elif try_again == "no":
+                                    print("\nGame over. Thanks for playing!")
+                                    exit()
+                                else:
+                                    print("Invalid option. Please enter 'yes' or 'no'.")
+                            break
+
+                    # Choosing the path 8 room
+                    elif sevenAndEightPathChoice == "right":
+                        print("You choose the path to your right.")
+
+                        # Describing the path 8 room.
+                        print("\nWhen you enter the room you notice a flimsy wooden box sitting in the middle of the room")
+                        print("You can also see that beyond the box is a path leading forwards.")
+
+                        # Snake box action
+                        while True:
+                            boxAction = input("\nDo you break the box or do you choose to continue moving forward (break/forward) > ").lower()
+                            if boxAction == "break":
+                                print("\nYou decide to break the box.")
+                                print("As you smash the box, a venomous snake shoots out and bites your arm!")
+                                print("The poison starts to take effect and you begin to feel weak.")
+                                print("\nYou fall over dead.")
+
+                                # Asking the player if they want to try again after death
+                                while True:
+                                    try_again = input("Would you like to try again? (yes/no): ").lower()
+                                    if try_again == "yes":
+                                        print("\nRestarting last checkpoint...\n")
+                                        break
+                                    elif try_again == "no":
+                                        print("\nGame over. Thanks for playing!")
+                                        exit()
+                                    else:
+                                        print("Invalid option. Please enter 'yes' or 'no'.")
+                                break
+                                # Choosing to ignore the box and return to the previous room.
+                            elif boxAction == "forward":
+                                print("\nYou decide not to risk it move to the next room.")
+                                print("\nUpon entering the next room a wall of fire shoots up behind you where the doorway was, leaving you trapped.")
+                                print("You can see that there is a chasm separating your side of the room from the other side with a drawbridge that needs to be activated to cross.")
+                                print("At the same time you also notice a flying creature at the other side of the chasm spitting acid at you.")
+
+                                if weaponChoice == "sword":
+                                    print("\nYou try and swing your heavy sword at the flying creature but it is too slow and far too heavy to throw.")
+                                    print("Acid sprays through the air hitting your arm, severely burning it and causing you to drop the sword.")
+                                    print("You fall to your knees, clutching your arm as you look up to see more acid firing towards you.")
+                                    print("The acid hits you in the face, killing you.")
+                                    print("\nYou are dead")
+
+                                    # Asking the player if they want to try again after death
+                                    while True:
+                                        try_again = input("Would you like to try again? (yes/no): ").lower()
+                                        if try_again == "yes":
+                                            print("\nRestarting last checkpoint...\n")
+                                            break
+                                        elif try_again == "no":
+                                            print("\nGame over. Thanks for playing!")
+                                            exit()
+                                        else:
+                                            print("Invalid option. Please enter 'yes' or 'no'.")
+                                    break
+
+                                elif weaponChoice == "spear":
+                                    print("\nYou try and hit the flying creature with you spear, but it is just out of reach.")
+                                    print("You decide to throw the spear at the creature, skewering it.")
+                                    print("\nThe spear breaks on impact, falling into the chasm.")
+                                    print("With the path behind you still blocked, you attempt to jump across the chasm clutcing onto the edge of the platform")
+                                    print("As you start trying to climb up, the creature awakens and shoots acid onto one of your hands, causing you to lose your grip.")
+                                    print("\nYou fall into the chasm, landing of a bed of spikes. You are dead.")
+
+                                    # Asking the player if they want to try again after death
+                                    while True:
+                                        try_again = input("Would you like to try again? (yes/no): ").lower()
+                                        if try_again == "yes":
+                                            print("\nRestarting last checkpoint...\n")
+                                            break
+                                        elif try_again == "no":
+                                            print("\nGame over. Thanks for playing!")
+                                            exit()
+                                        else:
+                                            print("Invalid option. Please enter 'yes' or 'no'.")
+                                    break
+                                elif weaponChoice == "bow":
+                                    print("\nYou pull back your bow and release an arrow into the creature as it is about to spit acid at you.")
+                                    print("This stuns it, causing it to falter and spill acid onto itself.")
+                                    print("\nYou fire another arrow, hitting it in the head and causing it to fall to the ground dead.")
+                                    print("You see a button on the other side, it appears to be for lifting the drawbridge")
+                                    print("You fire an arrow into the button, lifting up the bridge and allowing you to continue forward.")
+
+                                    # Continuing the game to the ending with the bow.
+                                    print("\nYou move forward through the newly made path into the next room")
+                                    print("Upon entering the room, you see a large door with a button on either side of it.")
+                                    print("Above the door is a riddle carved into the stone.")
+
+                                    # Displaying the new room with a riddle to either escape.
+                                    print("\n\"I speak without a mouth and can hear without ears. I have no body, but I can come to life with the wind. What am I?\"")
+                                    print("The button on the left has a picture of WINGS while the button on the right says ECHO.")
+                                    print("\nWhich do button you choose?")
+
+
+                                    # Loop until the player enters the correct answer
+                                    while True:
+                                        # Prompt the player to enter their answer
+                                        answer = input("\nYour answer: ").lower()
+
+                                        # Check if the answer is correct
+                                        if answer == "echo":
+                                            print("You press the button on the right labeled ECHO.")
+                                            print("A rumbling sound echos throughout the room as the door slowly opens up, revealing the outside world.")
+                                            print("\nYou run into the sunlight, escaping the dungeon.")
+                                            print("\nThe End")
+                                            exit()  # Exit the game
+                                        # Player guesses wrong.
+                                        elif answer == "wings":
+                                            print("You press the button on the left labeled WINGS.")
+                                            print("The door leading to the drawbridge room closes shut and a hissing sound fills the room.")
+                                            print("The room is being filled with poison gas.")
+                                            print("\nYou start tugging on the door to get it open, but it is no use.")
+                                            print("Despite your best efforts to not breathe, you inhale a little bit of the poison gas.")
+                                            print("You start to cough and choke as the gas fills your lungs.")
+                                            print("\nYou are dead")
+
+                                            # Asking the player if they want to try again after death
+                                            while True:
+                                                try_again = input("Would you like to try again? (yes/no): ").lower()
+                                                if try_again == "yes":
+                                                    print("\nRestarting last checkpoint...\n")
+                                                    break
+                                                elif try_again == "no":
+                                                    print("\nGame over. Thanks for playing!")
+                                                    exit()
+                                                else:
+                                                    print("Invalid option. Please enter 'yes' or 'no'.")
+                                            break
+
+                                        else:
+                                            print("\nIncorrect. Pick one of the two options.")
+
+                                break
+                            else:
+                                print("Invalid option. Please enter either 'break' or 'forward'.")
+                        break
+
+            # Left path (path 1) chosen at the start
+            elif pathChoice == "left":
+                print("You choose the path to your left.")
+
+                # Describing path 1 room.
+                print("\nThe room is empty except for an apple sitting on a plate in the middle of the floor.")
+                print("It is bright red and appears to be clean. Now that you think about, it you are pretty hungry")
+
+                while True:
+                    appleChoice = input("\nWould you like to eat the apple? (yes/no) > ").lower()
+
+                    # Path taken if the user decides to eat the apple
+                    if appleChoice == "yes":
+                        print("\nYou pick up the apple and take a bite out of it.")
+                        print("As you do this, your teeth make contact with something hard")
+                        print("You look down and see a small pink jewel, about the size of an acorn embedded in the apple.")
+                        print("You remove the jewel and put it in your pocket.")
+
+                        # Continuing after the apple
+                        print("\nYou continue through the path into the next room.")
+                        print("Upon entering the room the door behind you is quickly covered by large thorns that rapidly grow over the doorway.")
+                        print("Looking at the other side of the room, you see a small, imp-like creature holding a small dagger.")
+                        print("The creature is covered in the same large thorns that have blocked the doorway behind you.")
+
+                        if weaponChoice == "sword":
+                            # Implement sword logic
+                            print("\nYou raise your sword, preparing to fight the creature.")
+                            print("As you bring the blade down, the imp quickly moves out of the way of your strike. It is too fast.")
+                            print("You swing again and the imp once again dances around the attack, this time slicing your leg with its dagger.")
+                            print("You fall to the ground, reeling from the cut on your leg.")
+                            print("\nBefore you can react or lift up your sword, the imp lunges at you and stabs you in the chest.")
+                            print("You are dead.")
+
+                            while True:
+                                try_again = input("Would you like to try again? (yes/no): ").lower()
+                                if try_again == "yes":
+                                    print("\nRestarting last checkpoint...\n")
+                                    break
+                                elif try_again == "no":
+                                    print("\nGame over. Thanks for playing!")
+                                    exit()
+                                else:
+                                    print("Invalid option. Please enter 'yes' or 'no'.")
+                            break
+
+                        elif weaponChoice == "spear":
+                            # Implement spear logic
+                            print("\nAs the imp creature approaches you, you prepare yourself to strike.")
+                            print("As it lunges at you, you strike it with your spear, pushing it back.")
+                            print("It tries to evade your attack, but you are too quick, skewering it in the process.")
+
+                            # This continues to the spear ending.
+                            print("\nYou continue along the path to see a mostly empty room with a giant door at the end.")
+                            print("In the center of the door is some sort of mechanism with a small crevice for an item to be entered.")
+                            print("\nYou remember the jewel you got from the apple and place it into the crevice.")
+                            print("Upon placing the jewel into the crevice, you hear gears turning and a loud rumbling as the door begins to open.")
+                            print("You can now see sunlight coming through the doorway and realize that this is an exit.")
+                            print("\nYou run outside into the sunlight, escaping the dungeon.")
+                            print("\nThe End")
+                            exit()
+
+                        elif weaponChoice == "bow":
+                            # Implement bow logic
+                            print("\nYou pull back your bow and fire an arrow at the creature.")
+                            print("It quickly dodges the arrow and proceeds to close the distance.")
+                            print("Before you can pull another arrow out of your quiver, the imp stabs you in the leg.")
+                            print("You fall to the ground in pain, dropping your bow.")
+                            print("You look up to see the imp plunge its dagger into your chest.")
+                            print("\nYou have died.")
+
+                            while True:
+                                try_again = input("Would you like to try again? (yes/no): ").lower()
+                                if try_again == "yes":
+                                    print("\nRestarting last checkpoint...\n")
+                                    break
+                                elif try_again == "no":
+                                    print("\nGame over. Thanks for playing!")
+                                    exit()
+                                else:
+                                    print("Invalid option. Please enter 'yes' or 'no'.")
+                            break
+
+                        else:
+                            print("Invalid weapon choice. Please choose from 'sword', 'spear', or 'bow'.")
+                        break  # Exit the loop if a valid choice is made
+
+                    # Path taken if the user decides to leave the apple alone (This will lead to death).
+                    elif appleChoice == "no":
+                        print("You decide to play it safe and leave the apple alone")
+                        print("\nYou continue through the path into the next room.")
+                        print(
+                            "Upon entering the room the door behind you is quickly covered by large thorns that rapidly grow over the doorway.")
+                        print(
+                            "Looking at the other side of the room, you see a small, imp-like creature holding a small dagger.")
+                        print(
+                            "The creature is covered in the same large thorns that have blocked the doorway behind you.")
+
+                        if weaponChoice == "sword":
+                            print("\nYou raise your sword, preparing to fight the creature.")
+                            print("As you bring the blade down, the imp quickly moves out of the way of your strike. It is too fast.")
+                            print("You swing again and the imp once again dances around the attack, this time slicing your leg with its dagger.")
+                            print("You fall to the ground, reeling from the cut on your leg.")
+                            print("\nBefore you can react or lift up your sword, the imp lunges at you and stabs you in the chest.")
+                            print("You are dead.")
+
+                            while True:
+                                try_again = input("Would you like to try again? (yes/no): ").lower()
+                                if try_again == "yes":
+                                    print("\nRestarting last checkpoint...\n")
+                                    break
+                                elif try_again == "no":
+                                    print("\nGame over. Thanks for playing!")
+                                    exit()
+                                else:
+                                    print("Invalid option. Please enter 'yes' or 'no'.")
+                            break
+
+                        elif weaponChoice == "spear":
+                            # Implement spear logic
+                            print("\nAs the imp creature approaches you, you prepare yourself to strike.")
+                            print("As it lunges at you, you strike it with your spear, pushing it back.")
+                            print("It tries to evade your attack, but you are too quick, skewering it in the process.")
+
+                            # This continues to the spear ending.
+                            print("\nYou continue along the path to see a mostly empty room with a giant door at the end.")
+                            print("In the center of the door is some sort of mechanism with a small crevice for an item to be entered.")
+                            print("You look around the room for clues and see what looks like a small rock sitting on the floor.")
+                            print("You decide to try and place this in the crevice.")
+
+                            # Wrong apple choice death
+                            print("\nYou hear gears turning followed by a clicking sound behind you.")
+                            print("You turn around and are hit in the chest by something.")
+                            print("An arrow shot out of a hole in the wall, you placed the wrong item in the crevice.")
+                            print("\nThe arrow must have been poisoned since you start to feel light headed.")
+                            print("You fall to the ground")
+                            print("\nYou are dead.")
+
+                            while True:
+                                try_again = input("Would you like to try again? (yes/no): ").lower()
+                                if try_again == "yes":
+                                    print("\nRestarting last checkpoint...\n")
+                                    break
+                                elif try_again == "no":
+                                    print("\nGame over. Thanks for playing!")
+                                    exit()
+                                else:
+                                    print("Invalid option. Please enter 'yes' or 'no'.")
+                            break
+
+                        elif weaponChoice == "bow":
+                            # Implement bow logic
+                            print("\nYou pull back your bow and fire an arrow at the creature.")
+                            print("It quickly dodges the arrow and proceeds to close the distance.")
+                            print("Before you can pull another arrow out of your quiver, the imp stabs you in the leg.")
+                            print("You fall to the ground in pain, dropping your bow.")
+                            print("You look up to see the imp plunge its dagger into your chest.")
+                            print("\nYou have died.")
+
+                            while True:
+                                try_again = input("Would you like to try again? (yes/no): ").lower()
+                                if try_again == "yes":
+                                    print("\nRestarting last checkpoint...\n")
+                                    break
+                                elif try_again == "no":
+                                    print("\nGame over. Thanks for playing!")
+                                    exit()
+                                else:
+                                    print("Invalid option. Please enter 'yes' or 'no'.")
+                            break
+
+                        else:
+                            print("Invalid weapon choice. Please choose from 'sword', 'spear', or 'bow'.")
+                        break  # Exit the loop if a valid choice is made
+
+                    else:
+                        print("Invalid option. Please enter either straight or left.")
+                        # Continue the loop to prompt the user again for a valid choice
