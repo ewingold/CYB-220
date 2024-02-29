@@ -10,19 +10,16 @@ while True:
 
     # Loop until a valid weapon choice is made
     while True:
-        # Loop until a valid weapon choice is made
         weaponChoice = input("> ").lower()  # Converting input to lowercase
 
         if weaponChoice == "sword":
             print("You pick up the sword!")
-            print(
-                "It is very heavy. You are not sure if you would be able to swing this very fast but it should do a lot of damage.")
+            print("It is very heavy. You are not sure if you would be able to swing this very fast but it should do a lot of damage.")
             break  # Exit the loop if a valid choice is made
 
         elif weaponChoice == "spear":
             print("You pick up the spear!")
-            print(
-                "The spear is fairly light and could help you keep distance between yourself and anyone that might try and attack you.")
+            print("The spear is fairly light and could help you keep distance between yourself and anyone that might try and attack you.")
             print("It feels a little flimsy though")
             break  # Exit the loop if a valid choice is made
 
@@ -37,7 +34,7 @@ while True:
 
     # Main game loop
     while True:
-        # Prompt the user to choose a path
+        # Prompt the user to choose a path (This is where the game will restart to)
         print("\nNow that you have a weapon and can see where you are, you notice two separate paths that you could take.")
         print("One is directly ahead of you and the other is to your left.")
 
@@ -45,7 +42,7 @@ while True:
         while True:
             pathChoice = input("\nWhich path will you take? (straight/left) > ").lower()  # Convert input to lowercase
 
-            # Taking path 6 at the start.
+            # Taking path straight at the start.
             if pathChoice == "straight":
                 print("You choose the path straight ahead.")
 
@@ -69,7 +66,8 @@ while True:
                 print("\nWith the spider defeated, you notice two more paths.")
                 print("One leads straight ahead, and the other is to your right.")
 
-                # Choosing a path after beating the spider
+                # Choosing a path after beating the spider (I named this choice after how I drew the map on a piece of paper.
+                # I numbered each pathway so even if this is not the seventh or eight choice, it is labeled that way when I drew the map out.
                 while True:
                     sevenAndEightPathChoice = input("\nWhich path will you take? (straight/right) > ").lower()
 
@@ -95,8 +93,7 @@ while True:
 
                             # Prompt the player to make a choice (ceiling)
                             while True:
-                                ceilingAction = input(
-                                    "\nDo you try to return through the closed door, or do you attempt to move forward to the next room? (retreat/forward) > ").lower()
+                                ceilingAction = input("\nDo you try to return through the closed door, or do you attempt to move forward to the next room? (retreat/forward) > ").lower()
                                 if ceilingAction == "retreat":
                                     print("\nYou try to retreat back the way you came, but the door is sealed shut!")
                                     print("You try tugging harder and even hitting it with you sword, but it is no use")
@@ -246,6 +243,7 @@ while True:
                                         else:
                                             print("Invalid option. Please enter 'yes' or 'no'.")
                                     break
+                                    
                                 elif weaponChoice == "bow":
                                     print("\nYou pull back your bow and release an arrow into the creature as it is about to spit acid at you.")
                                     print("This stuns it, causing it to falter and spill acid onto itself.")
@@ -316,7 +314,7 @@ while True:
                 print("It is bright red and appears to be clean. Now that you think about, it you are pretty hungry")
 
                 while True:
-                    appleChoice = input("\nWould you like to eat the apple? (yes/no) > ").lower()
+                    appleChoice = input("\nWould you like to eat the apple? (yes/no) > ").lower() # Converts text to lowercase
 
                     # Path taken if the user decides to eat the apple
                     if appleChoice == "yes":
@@ -332,14 +330,14 @@ while True:
                         print("The creature is covered in the same large thorns that have blocked the doorway behind you.")
 
                         if weaponChoice == "sword":
-                            # Implement sword logic
                             print("\nYou raise your sword, preparing to fight the creature.")
                             print("As you bring the blade down, the imp quickly moves out of the way of your strike. It is too fast.")
                             print("You swing again and the imp once again dances around the attack, this time slicing your leg with its dagger.")
                             print("You fall to the ground, reeling from the cut on your leg.")
                             print("\nBefore you can react or lift up your sword, the imp lunges at you and stabs you in the chest.")
                             print("You are dead.")
-
+                            
+                            # Asking if players want to try again after death
                             while True:
                                 try_again = input("Would you like to try again? (yes/no): ").lower()
                                 if try_again == "yes":
@@ -369,14 +367,14 @@ while True:
                             exit()
 
                         elif weaponChoice == "bow":
-                            # Implement bow logic
                             print("\nYou pull back your bow and fire an arrow at the creature.")
                             print("It quickly dodges the arrow and proceeds to close the distance.")
                             print("Before you can pull another arrow out of your quiver, the imp stabs you in the leg.")
                             print("You fall to the ground in pain, dropping your bow.")
                             print("You look up to see the imp plunge its dagger into your chest.")
                             print("\nYou have died.")
-
+                            
+                            # Asking player if they would like to try again
                             while True:
                                 try_again = input("Would you like to try again? (yes/no): ").lower()
                                 if try_again == "yes":
@@ -411,7 +409,8 @@ while True:
                             print("You fall to the ground, reeling from the cut on your leg.")
                             print("\nBefore you can react or lift up your sword, the imp lunges at you and stabs you in the chest.")
                             print("You are dead.")
-
+                            
+                            # Asking the player if they would like to try again
                             while True:
                                 try_again = input("Would you like to try again? (yes/no): ").lower()
                                 if try_again == "yes":
@@ -425,7 +424,6 @@ while True:
                             break
 
                         elif weaponChoice == "spear":
-                            # Implement spear logic
                             print("\nAs the imp creature approaches you, you prepare yourself to strike.")
                             print("As it lunges at you, you strike it with your spear, pushing it back.")
                             print("It tries to evade your attack, but you are too quick, skewering it in the process.")
@@ -443,7 +441,8 @@ while True:
                             print("\nThe arrow must have been poisoned since you start to feel light headed.")
                             print("You fall to the ground")
                             print("\nYou are dead.")
-
+                            
+                            # Asking the player if they would like to try again after death
                             while True:
                                 try_again = input("Would you like to try again? (yes/no): ").lower()
                                 if try_again == "yes":
@@ -457,14 +456,14 @@ while True:
                             break
 
                         elif weaponChoice == "bow":
-                            # Implement bow logic
                             print("\nYou pull back your bow and fire an arrow at the creature.")
                             print("It quickly dodges the arrow and proceeds to close the distance.")
                             print("Before you can pull another arrow out of your quiver, the imp stabs you in the leg.")
                             print("You fall to the ground in pain, dropping your bow.")
                             print("You look up to see the imp plunge its dagger into your chest.")
                             print("\nYou have died.")
-
+                            
+                            # Asking the player if they would like to try again after death
                             while True:
                                 try_again = input("Would you like to try again? (yes/no): ").lower()
                                 if try_again == "yes":
