@@ -1,0 +1,104 @@
+import nmap
+from graphviz import Digraph
+import networkx as nx
+import matplotlib.pyplot as plt
+def generate_network_graph_with_graphviz(ip_addr, open_ports):
+    dot = Digraph()
+
+    # Add node for IP address
+    dot.node(ip_addr, ip_addr)
+
+    # Add nodes for open ports
+    for port in open_ports:
+        dot.node(f"Port: {port}", f"Port: {port}")
+
+        # Add edge from IP address to open port
+        dot.edge(ip_addr, f"Port: {port}")
+
+    return dot
+
+def generate_network_graph_with_networkx(ip_addr, open_ports):
+    G = nx.Graph()
+
+    # Add node for IP address
+    G.add_node(ip_addr)
+
+    # Add nodes for open ports and edges between IP address and open ports
+    for port in open_ports:
+        G.add_node(f"Port: {port}")
+        G.add_edge(ip_addr, f"Port: {port}")
+
+    return G
+
+def main():
+    scanner = nmap.PortScanner()
+
+    # Startup message to tell user what the tool will be used for.
+    print("Hello, here is an nmap scanner tool")
+
+    # Here is the first user input where the user is prompted to enter the IP address that they want to scan.
+    ip_addr = input("Enter the IP address that you want to scan: ")
+    print("Here is the IP address that you entered: ", ip_addr)
+
+    # Creating a variable for user response and three scanning options for them to choose.
+    resp = input("""\nPlease enter the type of scan you want to run:
+                 1. TCP Connect Scan
+                 2. UDP Scan
+                 3. Comprehensive Scan\n""")
+
+    # Printing out scan type
+    print("You have selected option:", resp)
+
+    # Convert response to lowercase and remove any extra whitespace
+    resp = resp.strip().lower()
+
+    # Perform nmap scan based on user's choice
+    if resp == '1':
+        # TCP Connect Scan
+        scanner.scan(ip_addr, '1-1023', '-v -sT')
+
+    elif resp == '2':
+        # UDP Scan
+        scanner.scan(ip_addr, '1-1023', '-v -sU')
+
+    elif resp == '3':
+        # Comprehensive Scan
+        scanner.scan(ip_addr, '1-1023', '-v -sS -sV -sC -A -O')
+
+    else:
+        print("Please enter one of the valid options")
+        return
+
+    # Get open ports
+    open_ports = list(scanner[ip_addr]['tcp'].keys())
+
+    # Generate network graph with Graphviz
+    graphviz_graph = generate_network_graph_with_graphviz(ip_addr, open_ports)
+
+    # Render and save Graphviz graph
+    graphviz_graph.render(f'network_graph_{ip_addr}', format='png')
+
+    # Creating the network graph with NetworkX
+    networkx_graph = generate_network_graph_with_networkx(ip_addr, open_ports)
+
+    # Visualizing network graph with NetworkX
+    nx.draw(networkx_graph, with_labels=True)
+    plt.show()
+
+    # State of the IP address that lets user know whether system is up or not
+    print("IP Status:", scanner[ip_addr].state)
+    print("Protocols:", scanner[ip_addr].all_protocols())
+
+    # Displaying the open ports
+    print("Open Ports:", scanner[ip_addr]['tcp'].keys())
+
+# displays main function of the program
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
